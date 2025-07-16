@@ -311,7 +311,7 @@ export default function Payment() {
                         <span>{seat.id}</span>
                         <Badge variant="outline" className="ml-2 text-xs">{seat.type}</Badge>
                       </div>
-                      <span className="font-medium">${seat.price}</span>
+                      <span className="font-medium">₹{seat.price.toLocaleString()}</span>
                     </div>
                   ))}
                 </div>
@@ -322,7 +322,7 @@ export default function Payment() {
               {/* Total */}
               <div className="flex justify-between items-center text-lg font-semibold">
                 <span>Total Amount</span>
-                <span className="text-primary">${totalPrice}</span>
+                <span className="text-primary">₹{totalPrice.toLocaleString()}</span>
               </div>
 
               {/* Pay Button */}
@@ -341,7 +341,7 @@ export default function Payment() {
                 ) : (
                   <>
                     <CreditCard className="mr-2 h-4 w-4" />
-                    Pay ${totalPrice}
+                    Pay ₹{totalPrice.toLocaleString()}
                   </>
                 )}
               </Button>

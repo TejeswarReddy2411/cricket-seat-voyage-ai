@@ -138,7 +138,7 @@ export default function Ticket() {
                         <p className="font-medium">Seat Details</p>
                         {selectedSeats.map((seat: any, index: number) => (
                           <p key={seat.id} className="text-sm text-muted-foreground">
-                            {seat.id} - {seat.type} (${seat.price})
+                            {seat.id} - {seat.type} (₹{seat.price.toLocaleString()})
                           </p>
                         ))}
                       </div>
@@ -163,12 +163,12 @@ export default function Ticket() {
                     {selectedSeats.map((seat: any) => (
                       <div key={seat.id} className="flex justify-between text-sm">
                         <span>{seat.id} ({seat.type})</span>
-                        <span>${seat.price}</span>
+                        <span>₹{seat.price.toLocaleString()}</span>
                       </div>
                     ))}
                     <div className="border-t border-primary/20 pt-2 flex justify-between font-semibold">
                       <span>Total Paid</span>
-                      <span className="text-primary">${totalPrice}</span>
+                      <span className="text-primary">₹{totalPrice.toLocaleString()}</span>
                     </div>
                     <p className="text-xs text-muted-foreground">
                       Paid via {paymentMethod === 'card' ? 'Credit/Debit Card' : 'UPI'}

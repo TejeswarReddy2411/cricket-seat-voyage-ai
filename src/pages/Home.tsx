@@ -36,7 +36,7 @@ const matches: Match[] = [
     stadium: 'Melbourne Cricket Ground',
     city: 'Melbourne',
     country: 'Australia',
-    price: { min: 50, max: 500 },
+    price: { min: 2000, max: 20000 },
     availableSeats: 1250,
     format: 'Test Match'
   },
@@ -50,7 +50,7 @@ const matches: Match[] = [
     stadium: 'Wankhede Stadium',
     city: 'Mumbai',
     country: 'India',
-    price: { min: 25, max: 300 },
+    price: { min: 1000, max: 15000 },
     availableSeats: 800,
     format: 'T20'
   },
@@ -64,7 +64,7 @@ const matches: Match[] = [
     stadium: 'Lords Cricket Ground',
     city: 'London',
     country: 'England',
-    price: { min: 40, max: 400 },
+    price: { min: 1500, max: 18000 },
     availableSeats: 950,
     format: 'ODI'
   },
@@ -78,7 +78,7 @@ const matches: Match[] = [
     stadium: 'M. Chinnaswamy Stadium',
     city: 'Bangalore',
     country: 'India',
-    price: { min: 30, max: 350 },
+    price: { min: 1200, max: 14000 },
     availableSeats: 600,
     format: 'T20'
   },
@@ -92,7 +92,7 @@ const matches: Match[] = [
     stadium: 'M. A. Chidambaram Stadium',
     city: 'Chennai',
     country: 'India',
-    price: { min: 15, max: 100 },
+    price: { min: 500, max: 4000 },
     availableSeats: 2000,
     format: 'First Class'
   },
@@ -106,7 +106,7 @@ const matches: Match[] = [
     stadium: 'National Stadium',
     city: 'Karachi',
     country: 'Pakistan',
-    price: { min: 20, max: 200 },
+    price: { min: 800, max: 8000 },
     availableSeats: 1100,
     format: 'T20I'
   }
@@ -281,7 +281,7 @@ export default function Home() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm text-muted-foreground">Starting from</p>
-                        <p className="text-lg font-semibold text-primary">${match.price.min}</p>
+                        <p className="text-lg font-semibold text-primary">₹{match.price.min}</p>
                       </div>
                       <div className="text-right">
                         <p className="text-sm text-muted-foreground">Available</p>

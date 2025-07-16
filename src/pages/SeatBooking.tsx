@@ -43,7 +43,7 @@ const generateSeats = (): Seat[] => {
   const seats: Seat[] = [];
   const sections = ['A', 'B', 'C', 'D', 'E'];
   const seatTypes = ['premium', 'standard', 'economy'] as const;
-  const prices = { premium: 500, standard: 250, economy: 100 };
+  const prices = { premium: 20000, standard: 10000, economy: 4000 };
   
   sections.forEach((section, sectionIndex) => {
     for (let row = 1; row <= 15; row++) {
@@ -208,7 +208,7 @@ export default function SeatBooking() {
                             className={`w-6 h-6 text-xs rounded ${getSeatColor(seat)} transition-colors duration-200`}
                             onClick={() => handleSeatClick(seat.id)}
                             disabled={!seat.isAvailable}
-                            title={`${seat.id} - $${seat.price} (${seat.type})`}
+                            title={`${seat.id} - ₹${seat.price} (${seat.type})`}
                           >
                             {seat.number}
                           </button>
@@ -222,15 +222,15 @@ export default function SeatBooking() {
               <div className="mt-6 grid grid-cols-2 gap-2 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-yellow-500 rounded"></div>
-                  <span>Premium ($500)</span>
+                  <span>Premium (₹20,000)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-blue-500 rounded"></div>
-                  <span>Standard ($250)</span>
+                  <span>Standard (₹10,000)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-green-500 rounded"></div>
-                  <span>Economy ($100)</span>
+                  <span>Economy (₹4,000)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-gray-400 rounded"></div>
@@ -258,7 +258,7 @@ export default function SeatBooking() {
                     {selectedSeats.map(seat => (
                       <div key={seat.id} className="flex justify-between items-center text-sm">
                         <span>{seat.id} ({seat.type})</span>
-                        <span className="font-medium">${seat.price}</span>
+                        <span className="font-medium">₹{seat.price.toLocaleString()}</span>
                       </div>
                     ))}
                   </div>
@@ -266,7 +266,7 @@ export default function SeatBooking() {
                   <div className="border-t pt-4">
                     <div className="flex justify-between items-center text-lg font-semibold">
                       <span>Total</span>
-                      <span className="text-primary">${totalPrice}</span>
+                      <span className="text-primary">₹{totalPrice.toLocaleString()}</span>
                     </div>
                   </div>
 
